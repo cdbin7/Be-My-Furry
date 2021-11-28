@@ -6,7 +6,9 @@ Rails.application.routes.draw do
           resources :likes, shallow: true, only: [:create, :destroy]
         end
       end
-      resources :users, only: [:create]
+      resources :users, only: [:create] do
+        get :current, on: :collection
+      end
       resource :session, only: [:create, :destroy]
     end
   end
