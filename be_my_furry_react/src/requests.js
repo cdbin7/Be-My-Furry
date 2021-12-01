@@ -20,17 +20,18 @@ export const Shelter = {
 }
 
 export const Pet = {
-    index(sid) {
-        return fetch(`${baseUrl}/shelters/${sid}/pets`)
-            .then(res => res.json());
+    index(type) {
+        return(
+          fetch(`${baseUrl}/pets?type=${type}`)
+          .then(res => res.json())
+        )
     },
     show(pid) {
-        // baseUrl + "/" + qid => `${baseUrl}/${qid}`
         return fetch(`${baseUrl}/pets/${pid}`)
             .then(res => res.json());
     },
-    create(params, sid) {
-        return fetch(`${baseUrl}/shelters/${sid}/pets`, {
+    create(params) {
+        return fetch(`${baseUrl}/pets`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

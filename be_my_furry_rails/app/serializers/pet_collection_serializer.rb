@@ -3,6 +3,8 @@ class PetCollectionSerializer < ActiveModel::Serializer
     :image,
     :id,
     :name,
-    :age
+    :age,
+    :gender,
+    :size
   ) 
 end

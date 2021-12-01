@@ -1,8 +1,10 @@
 class Pet < ApplicationRecord
   belongs_to :shelter
 
+  has_one_attached :image
+
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
   
-  validates :picture, :name, :age, :gender, :size, :hair, :special_needs, :personality, :sprayed_neutered, :canLiveWithPets, :vaccinated, presence: true
+  validates  :name, :age, :gender, :size, :hair, :personality, presence: true
 end

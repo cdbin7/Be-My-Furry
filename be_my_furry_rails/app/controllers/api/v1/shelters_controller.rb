@@ -12,6 +12,11 @@ class Api::V1::SheltersController < Api::ApplicationController
     end
   end
 
+  def show
+    shelter = Shelter.find params[:id]
+    shelter.pets
+    render json: {shelter}
+  end
 
   def destroy
     shelter = Shelter.find params[:id]

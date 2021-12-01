@@ -1,7 +1,9 @@
 class PetSerializer < ActiveModel::Serializer
+  include Rails.application.routes.url_helpers
+
   attributes(
-    :image,
     :id,
+    :image,
     :name,
     :age,
     :gender,
@@ -16,6 +18,10 @@ class PetSerializer < ActiveModel::Serializer
     :house_trained,
     :vaccinated
   )
+
+  def image
+    rails_blob_url(object.image, only_path: true) if object.image.attached?
+  end
 
   belongs_to :shelter
   class ShelterSerializer < ActiveModel::Serializer

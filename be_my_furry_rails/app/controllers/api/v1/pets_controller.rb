@@ -1,11 +1,25 @@
 class Api::V1::PetsController < Api::ApplicationController
-    before_action :find_product, only[:show, :destroy]
-    before_action :authenticate_user!, only[:show, :create, :destroy]
+    before_action :find_pet, only:[:show, :destroy]
+    before_action :authenticate_user!, only:[:create, :destroy]
 
+    # def index
+    #   if @pet.is_cat
+    #     pets = Pet.where("is_cat = true").order(created_at: :desc)
+    #     shelter = Shelter.find params[:shelter_id]
+    #     render(json: pets, each_serializer: PetCollectionSerializer)
+    #   else
+    #     pets = Pet.where("is_cat = false").order(created_at: :desc)
+    #     shelter = Shelter.find params[:shelter_id]
+    #     render(json: pets, each_serializer: PetCollectionSerializer)
+    #   end
+    # end
     def index
-      pets = Pet.order(created_at: :desc)
+      pets = Pet.where({is_cat: params[:type]=='1'}).order(created_at: :desc)
+      # shelter = Shelter.find params[:shelter_id]
       render(json: pets, each_serializer: PetCollectionSerializer)
     end
+
+    
 
     def show
       render json: @pet
@@ -14,8 +28,9 @@ class Api::V1::PetsController < Api::ApplicationController
     def create
       if current_user&.admin?
         pet = Pet.new(pet_params)
+        byebug
         if pet.save
-          render json: {id: pet_id}
+          render json: {id: pet.id}
         else
           render json: {errors: pet.errors.messages, status:422}
         end
@@ -39,8 +54,9 @@ class Api::V1::PetsController < Api::ApplicationController
     end
 
     def pet_params
-      params.require(:pet)
+      params
         .permit(
+          :image,
           :id,
           :name,
           :age,
