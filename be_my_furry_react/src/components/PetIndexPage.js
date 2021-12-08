@@ -1,34 +1,64 @@
 import React, {useState, useEffect} from 'react'
-import { Pet } from '../requests'
+import { Pet, Survey } from '../requests'
 import { Link } from 'react-router-dom'
 import LikeButton from './LikeButton';
 
 export default function PetIndexPage(props) {
-  console.log(props);
   const [pets, setPets] = useState([])
  
   useEffect(()=> {
-    Pet.index(props.match.params.type)
+    if (props.location?.state) {
+      Survey.index(props.location.state.params, props.match.params.type)
+      .then((data) => {
+        console.log(data);
+        setPets(data);
+      })
+    } else if(props.match?.params.type) {
+          Pet.index(props.match.params.type)
       .then((data) => {
         // console.log(data);
         setPets(data)
       })
-  }, [])
+    }else{
+      setPets(props.likes)
+    }
+    
+    },[props.match?.params.type, props.likes])
 
+  //   Pet.index(props.match.params.type)
+  //     .then((data) => {
+  //       // console.log(data);
+  //       setPets(data)
+  //     })
+  // }, [props.match.params.type])
 
-
+  const handleAge = (age) => {
+    if (age == 0) {
+      return 'New Born'
+    } else if (age <= 2) {
+      return 'Young'
+    } else if (age <= 6){
+      return 'Adult'
+    } else {
+      return 'Old'
+    } 
+  }
 
 
   return (
-    <div>
+    <div className="petIndexPage">
       {pets.map((e)=> {
         return(
-          <>
-          <img src={e.image} alt="dog" />
-          <LikeButton />
-          <h1 key={e.id} > <Link to={`/pets/${e.id}`}>{e.name}</Link></h1>
-          <h2>{props.handleAge(e.age)} | {e.gender} | {e.size} size </h2>
-          </>
+          <div className="card">
+            <div key={e.id}>
+              <img style={{height:"300px",width:"100%", borderRadius:"10px"}} src={"http://localhost:3000/"+e.image} alt="dog" />
+              <LikeButton pet_id={e.id}/>
+              <div className="container">
+                <h1> <Link className="pet-name" to={`/pets/${e.id}`}>{e.name}</Link></h1>
+                <h2>{handleAge(e.age)} | {e.gender} | {e.size} size </h2>
+            </div>
+            </div>
+          </div>
         )
       })}
     </div>

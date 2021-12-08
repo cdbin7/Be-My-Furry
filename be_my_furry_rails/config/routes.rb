@@ -4,8 +4,14 @@ Rails.application.routes.draw do
       resources :shelters
 
       resources :pets do
-        resources :likes, shallow: true, only: [:create, :destroy]
+        post :survey_index, on: :collection
+        resources :likes, shallow: true, only: [:create, :destroy] 
+
+        get :show_like
       end
+      get "/likes", to: "pets#likes"
+
+
       
       resources :users, only: [:create] do
         get :current, on: :collection

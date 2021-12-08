@@ -13,10 +13,10 @@ class PetSerializer < ActiveModel::Serializer
     :special_needs,
     :personality,
     :sprayed_neutered,
-    :shelter_id,
     :canLiveWithPets,
     :house_trained,
-    :vaccinated
+    :vaccinated,
+    :is_cat
   )
 
   def image

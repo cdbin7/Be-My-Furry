@@ -1,0 +1,399 @@
+* {
+  font-family: "Baloo 2", cursive;
+}
+
+:root {
+  --color-primary: #a68ecf;
+  --color-purple: #f9eaff;
+  --color-pink: #e38fc9;
+  --color-lightpink: #ff97af;
+  --color-orange: #ffad8c;
+  --color-yellow: #ffd170;
+  --color-lightyellow: #f9f871;
+  --color-blue: #6a8cd2;
+}
+
+/* body {
+  height: 100%;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+} */
+
+.navbar {
+  font-size: 2rem;
+  height: 8vh;
+  padding: 0.5em;
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+}
+
+.sign {
+  font-size: 1.5rem;
+  width: 7rem;
+  height: 30px;
+  background-color: #6a8cd2;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.likes {
+  text-decoration: none;
+}
+
+.like-button-container {
+  /* display: inline-block; */
+  text-align: center;
+  font-size: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  line-height: 2.5rem;
+  margin-left: 0.2em;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav-title {
+  text-decoration: none;
+  color: var(--color-blue);
+  font-size: 40px;
+}
+
+.logo {
+  display: inline-block;
+  text-align: center;
+  /* font-size: 2rem; */
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-left: 0.2em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  margin-right: 0;
+  /* border: black;
+  border-style: solid;
+  border-width: 0.5px; */
+}
+
+.survey-icon {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  width: 20%;
+  height: 10%;
+  background-color: #e38fc9;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: white;
+}
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.sign-in-and-out-container {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.find-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  margin-top: 50px;
+  padding-bottom: 20%;
+}
+.icon-dog {
+  background-image: url("./imgs/peter-laing-NF-8R7SO6eg-unsplash.jpg");
+  width: 25%;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 20rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  text-decoration: none;
+}
+
+.icon-dog:hover {
+  opacity: 0.8;
+}
+
+.icon-cat {
+  background-image: url("./imgs/francesco-ungaro-cE3CG_HzsHM-unsplash.jpg");
+  width: 25%;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 20rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  text-decoration: none;
+}
+
+.icon-cat:hover {
+  opacity: 0.8;
+}
+
+.survey-container {
+  box-sizing: border-box;
+  border: 1px solid #a68ecf;
+  text-align: center;
+  font-size: 2rem;
+  height: 30%;
+  line-height: 2.5rem;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.survey-icon:hover {
+  border: white;
+  border-style: solid;
+}
+
+.welcomePage {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  color: white;
+  padding-top: 10px;
+}
+
+.contact-container {
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-left: 0.3em;
+  margin-right: 0.5em;
+  padding-bottom: 10%;
+}
+
+.petIndexPage {
+  /* background-color: #d9afd9;
+  background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%); */
+  background-color: #8ec5fc;
+  background-image: linear-gradient(270deg, #8ec5fc 0%, #e0c3fc 57%);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  transition: 0.3s;
+  border-radius: 10px;
+
+  width: 25rem;
+  margin: 20px;
+  background-color: #fff5fd;
+
+  /* border-color: white;
+  border-style: solid; */
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.pet-name {
+  text-decoration: none;
+}
+
+.sign-in-page {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    180deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.sign-in-container {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap; */
+  background-color: #e1edf2;
+  width: 500px;
+  height: 200px;
+  border-radius: 4px;
+  padding: 80px;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  font-size: 2rem;
+}
+
+input {
+  border: 1px solid #3f87a0;
+  border-radius: 4px;
+  height: 38px;
+  line-height: 38px;
+  padding-top: 2px;
+  margin-bottom: 15px;
+}
+
+.sign-in-input {
+  padding-right: 200px;
+  font-size: 1.5rem;
+  padding-left: 10px;
+}
+
+.sign-in-submit {
+  font-size: 1.5rem;
+  position: absolute;
+  right: 30%;
+  margin-top: 10px;
+}
+
+.sign-in-logo {
+  position: relative;
+  right: 30px;
+}
+
+.sign-up-input {
+  padding-right: 200px;
+  font-size: 1rem;
+  padding-left: 10px;
+  height: 30px;
+  line-height: 30px;
+  padding-top: 1px;
+  margin-bottom: 5px;
+}
+
+.sign-up-container {
+  background-color: #e1edf2;
+  width: 500px;
+  height: 370px;
+  border-radius: 4px;
+  padding: 0 60px;
+  padding-top: 20px;
+  padding-bottom: 200px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.sign-up-submit {
+  font-size: 1.2rem;
+  position: absolute;
+  right: 30%;
+  margin-top: 10px;
+}
+
+.sign-up-logo {
+  position: relative;
+  right: 30px;
+}
+.survey-type-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.survey-type {
+  cursor: pointer;
+  border: 1px solid #3f87a0;
+}
+
+.survey-type:hover {
+  opacity: 0.8;
+}
+
+.survey-dog {
+  background-image: url("./imgs/funny-dog.jpg");
+  width: 20%;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 15rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  font-size: 50px;
+  align-items: center;
+}
+
+.survey-cat {
+  background-image: url("./imgs/funny-cat.jpg");
+  width: 20%;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 15rem;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-size: 50px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pet-survey-page {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 100vh;
+}
+
+.survey-header {
+  text-align: center;
+}
+
+.pet-index-page-container {
+}

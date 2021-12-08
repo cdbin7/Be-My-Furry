@@ -7,15 +7,17 @@ export default function PetSurveyPage() {
   const [type, setType] = useState('');
 
   return (
-    <>
-    <div>
-      <h1>Let's find your best friend for you!</h1>
-      <button onClick={()=>setType('dog')}>Dog</button>
-      |
-      <button onClick={()=>setType('cat')}>Cat</button>
-    </div>
+    <div className="pet-survey-page">
+      <div>
+        <h1 className="survey-header">Let's find your best friend for you!</h1>
+        <h2 className="survey-header">Would you like to adopt a dog or a cat?</h2>
+        <div className="survey-type-container">
+          <button className="survey-type survey-dog" onClick={()=>setType('dog')}>Dog</button>
+          <button className="survey-type survey-cat" onClick={()=>setType('cat')}>Cat</button>
+        </div>
+      </div>
 
-    {type ? <PetSurveyForm type={type}/> : null}
-    </>
+      {type ? <PetSurveyForm type={type}/> : null}
+    </div>
   )
 }

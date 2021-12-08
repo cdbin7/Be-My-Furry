@@ -18,7 +18,7 @@ export default function PetShowPage(props) {
   }
 
 
-  const {name, age, gender, size, activity, hair, special_needs, personality, sprayed_neutered, shelter_id, canLiveWithPets, house_trained, vaccinated, is_cat} = pet
+  const {name, age, gender, size, activity, hair, special_needs, personality, sprayed_neutered, shelter, canLiveWithPets, house_trained, vaccinated, is_cat} = pet
   return (
     <div>
       <PetDetails
@@ -32,7 +32,7 @@ export default function PetShowPage(props) {
         special_needs={special_needs}
         personality={personality}
         sprayed_neutered={sprayed_neutered}
-        shelter_id={shelter_id}
+        shelter_id={shelter}
         canLiveWithPets={canLiveWithPets}
         house_trained={house_trained}
         vaccinated={vaccinated}

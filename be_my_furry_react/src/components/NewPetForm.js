@@ -1,11 +1,16 @@
-import React, {useState} from 'react'
-import { Pet } from '../requests';
+import React, {useState,useEffect} from 'react'
+import { Pet, Shelter } from '../requests';
 import {withRouter} from 'react-router'
-// import {useForm} from "react-hook-form";
 
 const NewPetForm = (props) => {
-  console.log(props);
-  
+  const [shelters, setShelters] = useState([])
+  const [image, setImage] = useState(null);
+  useEffect(() => {
+    Shelter.index()
+      .then((data) => {
+        setShelters(data)
+      })
+  }, [])
 
   const createPet = (params) => {
     Pet.create(params)
@@ -14,6 +19,7 @@ const NewPetForm = (props) => {
         props.history.push(`/pets/${pet.id}`)
       } else {
         alert('errors');
+        console.log(pet);
       } 
     })
   }
@@ -23,59 +29,17 @@ const NewPetForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget); 
-    // formData.append("image",image);
-  //   formData.append("name", props.name);
-  //   formData.append("age", props.age);
-  //   formData.append("gender", props.gender);
-  //   formData.append("size", props.size);
-  //   formData.append("hair", props.hair);
-  //   formData.append("personality", props.personality);
-  //   formData.append("canLiveWithPets", props.canLiveWithPets);
-  //   formData.append("activity", props.activity);
-  //   formData.append("house_trained", props.house_trained);
-  //   formData.append("special_needs", props.special_needs);
-  //   formData.append("sprayed_neutered", props.sprayed_neutered);
-  //   formData.append("vaccinated", props.vaccinated);
-  //   formData.append("description", props.description);
-  //   formData.append("shelter_id", 1);
 
-  //   console.log(formData);
-    
-  //   fetch(`${baseUrl}/pets`, {
-  //     method: "POST",
-  //     body: formData
-  //   })
-  //   .then(res => res.json())
-  //   .then((pet)=> {
-  //     props.history.push(`/pets/${pet.id}`)
-  //   })
-    
-  // }
-    const params = {
-      name: formData.get("name"),
-      // image: formData.get("image"),
-      age: formData.get("age"),
-      gender: formData.get("gender"),
-      size: formData.get("size"),
-      hair: formData.get("hair"),
-      personality: formData.get("personality"),
-      canLiveWithPets: formData.get("canLiveWithPets"),
-      activity: formData.get("activity"),
-      house_trained: formData.get("house_trained"),
-      special_needs: formData.get("special_needs"),
-      sprayed_neutered: formData.get("sprayed_neutered"),
-      vaccinated: formData.get("vaccinated"),
-      description: formData.get("description"),
-      shelter_id: 1
-    }
-    console.log(params); 
-    createPet(params);
+    formData.append("image", image);
+    formData.append("is_cat", props.type =='cat' ? true: false);
+ 
+    createPet(formData);
   }
   // }
 
-  // const onImageChange = event => {
-  //   setImage(event.target.files[0])
-  // }
+  const onImageChange = event => {
+    setImage(event.target.files[0])
+  }
 
 
   return (
@@ -83,14 +47,14 @@ const NewPetForm = (props) => {
     <h1>{props.type =='dog' ? 'Dog' : null}</h1>
     <h1>{props.type =='cat' ? 'Cat' : null}</h1>
     <form onSubmit={handleSubmit} >
-      {/* <input type="file" accept="image/*" multiple={false} onChange={onImageChange} />       */}
+      <input type="file" accept="image/*" multiple={false} onChange={onImageChange} />      
       <div>
         <label htmlFor="name">Name</label><br />
         <input type="string" name="name" id="name" /><br />
       </div>
       <div>
         <label htmlFor="age">Age</label><br />
-        <input type="integer" name="age" id="age"/>year old<br />
+        <input type="integer" name="age" id="age" value="age"/>year old<br />
       </div>
       <div>
         <label htmlFor="gender">Gender</label><br />
@@ -112,7 +76,7 @@ const NewPetForm = (props) => {
       <div>
         <label htmlFor="personality">Personality</label><br />
         <input type="radio" value="very_friendly" name="personality" id="personality1"/>Very Friendly<br />
-        <input type="radio" value="easy" name="personality" id="personality2"/>Easy Going<br />
+        <input type="radio" value="easy_going" name="personality" id="personality2"/>Easy Going<br />
         <input type="radio" value="shy" name="personality" id="personality2"/>Shy<br />
       </div>
       <div>
@@ -160,8 +124,22 @@ const NewPetForm = (props) => {
 
 
       <div>
-        <label htmlFor="shelter">Shelter Name</label><br />
-        <input type="text" name="shelter" id="shelter"/><br />
+        <h3>Shelter Name</h3>
+        {/* {shelters.map((e)=> {
+          return(
+            <div key={e.id}>
+            <input type="radio" value={e.id} name="shelter" id="shelter"/>
+            <label htmlFor="shelter">{e.name}</label><br />
+            </div>
+              )
+        })} */}
+        <select name="shelter_id">
+          {
+            shelters.map(e=>{
+              return <option value={e.id}>{e.name}</option>
+            })
+          }
+        </select>
       </div>
 
 

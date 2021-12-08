@@ -7,13 +7,16 @@ import SignUpPage from './components/SignUpPage';
 import SignInPage from './components/SignInPage';
 import {User} from './requests';
 import AuthContext from './context/auth-context';
+import AuthRoute from './components/AuthRoute';
 import PetSurveyPage from './components/PetSurveyPage';
 import PetShowPage from './components/PetShowPage';
 import NewPetPage from './components/NewPetPage';
-
+import ShelterIndexPage from './components/ShelterIndexPage';
+import NewShelterPage from './components/NewShelterPage';
+import LikedPage from './components/LikedPage';
+import NavBar from './components/NavBar';
 
 function App() {
-
   const [user, setUser] = useState(null);
 
   useEffect(()=> {
@@ -28,37 +31,33 @@ function App() {
     })
   }
 
+  
+
   const onSignOut = () => { setUser(null) }
 
-  const handleAge = (age) => {
-    if (age == 0) {
-      return 'New Born'
-    } else if (age <= 2) {
-      return 'Young'
-    } else if (age <= 6){
-      return 'Adult'
-    } else {
-      return 'Old'
-    } 
-  }
 
 
 
   return (
     <AuthContext.Provider value={{ user: user }}>
     <BrowserRouter>
+    <NavBar currentUser={user} onSignOut={onSignOut} />
     <Switch>
       <Route exact path='/sign_in'
         render={(routeProps) => <SignInPage {...routeProps} onSignIn={getCurrentUser} />}/>
       <Route exact path='/sign_up'
         render={(routeProps) => <SignUpPage {...routeProps} onSignUp={getCurrentUser} />}/>
       <Route exact path='/pets-index/:type'
-        render={(routeProps) => <PetIndexPage {...routeProps} handleAge={handleAge}/>}/>
+        render={(routeProps) => <PetIndexPage {...routeProps}/>}/>
       <Route exact path='/pets/new' component={NewPetPage} />
+      <AuthRoute isAuthenticated={!!user} exact path='/pets/likes' component={LikedPage}></AuthRoute>
       <Route exact path='/pets/:id' component={PetShowPage} />
-        {/* render={(routeProps) => <PetShowPage {...routeProps} handleAge={handleAge}/>}/> */}
-      <Route exact path='/pets-survey' component={PetSurveyPage}/>
+      <Route exact path='/pets-survey' component={PetSurveyPage}></Route>
+      <Route exact path='/shelters/new' component={NewShelterPage}/>
+      <Route exact path='/shelters' component={ShelterIndexPage}/>
       <Route exact path='/' component={WelcomePage} />
+        {/* <Route exact path='/'
+        render={(routeProps) => <WelcomePage {...routeProps} currentUser={user}/>}/> */}
     </Switch>
     </BrowserRouter>
     </AuthContext.Provider>

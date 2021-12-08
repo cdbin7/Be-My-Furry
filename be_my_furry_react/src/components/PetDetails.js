@@ -5,48 +5,51 @@ export default function PetDetails(props) {
   console.log(props);
   return (
     <>
-        <img src={props.image} alt="dog" />
+        <img style={{height:"300px",width:"300px"}} src={"http://localhost:3000/"+props.image} alt="dog" />
         <h2>{props.name}</h2>
         <ul>
           <li>
-          {props.age}
+          Age: {props.age}
           </li>
           <li>
-          {props.gender}
+          Size: {props.size}
           </li>
           <li>
-          {props.activity}
+          Gender: {props.gender}
           </li>
           <li>
-          {props.hair}
+          Hair-length: {props.hair}
           </li>
           <li>
-            {props.special_needs}
+            {props.special_needs ? "Special Needs: Yes" : "Special Needs: No"}
           </li>
           <li>
-            {props.personality}
+            Personality: {props.personality}
           </li>
           <li>
-            {props.sprayed_neutered}
+            Sprayed/Neutered: {props.sprayed_neutered? "Yes" : "No"}
           </li>
           {
             props.is_cat ? 
-              <>
+            null
+            :
+            <>
             <li>
-              {props.canLiveWithPets}
+              Activity-Level: {props.activity}
             </li>
             <li>
-              {props.house_trained}
+              Can Live with other Pets? : {props.canLiveWithPets? "Yes" : "No"}
+            </li>
+            <li>
+              House Trained: {props.house_trained? "Yes" : "No"}
             </li>
             </>
-            :
-            null
           }
           <li>
-            {props.vaccinated}
+            Vaccinated: {props.vaccinated? "Yes" : "No"}
           </li>
           <li>
-            {props.shelter_id}
+            Shelter: {props.shelter_id?.name}
           </li>
 
         </ul>
