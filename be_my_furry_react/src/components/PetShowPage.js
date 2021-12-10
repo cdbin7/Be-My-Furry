@@ -18,9 +18,9 @@ export default function PetShowPage(props) {
   }
 
 
-  const {name, age, gender, size, activity, hair, special_needs, personality, sprayed_neutered, shelter, canLiveWithPets, house_trained, vaccinated, is_cat} = pet
+  const {description, name, age, gender, size, activity, hair, special_needs, personality, sprayed_neutered, shelter, canLiveWithPets, house_trained, vaccinated, is_cat} = pet
   return (
-    <div>
+    <div className="petShowPageContainer">
       <PetDetails
         image={pet.image}
         name={name}
@@ -37,6 +37,7 @@ export default function PetShowPage(props) {
         house_trained={house_trained}
         vaccinated={vaccinated}
         is_cat={is_cat}
+        description={description}
       />
     </div>
   )

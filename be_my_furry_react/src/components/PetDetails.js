@@ -4,30 +4,30 @@ import React from 'react'
 export default function PetDetails(props) {
   console.log(props);
   return (
-    <>
-        <img style={{height:"300px",width:"300px"}} src={"http://localhost:3000/"+props.image} alt="dog" />
-        <h2>{props.name}</h2>
+    <div className="petDetailsContainer">
+        <img  style={{height:"300px",width:"500px", borderRadius:'10px', border:'2px solid white'}} src={"http://localhost:3000/"+props.image} alt="dog" />
+        <h1>{props.name}</h1><hr/>
         <ul>
           <li>
-          Age: {props.age}
+          <strong>Age: </strong> {props.age}
           </li>
           <li>
-          Size: {props.size}
+          <strong>Size:</strong> {props.size}
           </li>
           <li>
-          Gender: {props.gender}
+          <strong> Gender: </strong>{props.gender}
           </li>
           <li>
-          Hair-length: {props.hair}
+          <strong>Hair-length:</strong> {props.hair}
           </li>
           <li>
-            {props.special_needs ? "Special Needs: Yes" : "Special Needs: No"}
+          <strong>Special Needs: </strong> {props.special_needs ? "Yes" : "No"}
           </li>
           <li>
-            Personality: {props.personality}
+          <strong>Personality:</strong>{props.personality}
           </li>
           <li>
-            Sprayed/Neutered: {props.sprayed_neutered? "Yes" : "No"}
+          <strong>Sprayed/Neutered:</strong> {props.sprayed_neutered? "Yes" : "No"}
           </li>
           {
             props.is_cat ? 
@@ -35,24 +35,26 @@ export default function PetDetails(props) {
             :
             <>
             <li>
-              Activity-Level: {props.activity}
+            <strong>Activity-Level: </strong> {props.activity}
             </li>
             <li>
-              Can Live with other Pets? : {props.canLiveWithPets? "Yes" : "No"}
+            <strong>Can Live with other Pets? : </strong> {props.canLiveWithPets? "Yes" : "No"}
             </li>
             <li>
-              House Trained: {props.house_trained? "Yes" : "No"}
+            <strong>House Trained: </strong> {props.house_trained? "Yes" : "No"}
             </li>
             </>
           }
           <li>
-            Vaccinated: {props.vaccinated? "Yes" : "No"}
+          <strong>Vaccinated:</strong> {props.vaccinated? "Yes" : "No"}
           </li>
           <li>
-            Shelter: {props.shelter_id?.name}
+            {props.description? "Description: {props.description}" : ""}
           </li>
-
+          <li>
+          <strong>Shelter: </strong>{props.shelter_id?.name} - {props.shelter_id?.location}
+          </li>
         </ul>
-    </>
+    </div>
   )
 }

@@ -22,23 +22,23 @@ export default function NewShelterPage(props) {
   }
 
   return (
-    <>
-      <h1>Shelter Information</h1>
-      <form onSubmit={handleSubmit} createShelter={createShelter}>
+    <div className="shelter-index-page">
+      <h1 className="newShelterForm">Shelter Information</h1>
+      <form className="newShelterForm" onSubmit={handleSubmit} createShelter={createShelter}>
       <div>
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" />
+          <h3 style={{marginBottom:'0'}}><label htmlFor="name">Name</label></h3>
+          <input style={{paddingRight:'250px'}} type="text" name="name" id="name" />
           <br />
         </div>
         <div>
-          <label htmlFor="location">Address</label>
-          <input type="text" name="location" id="location" />
+          <h3 style={{marginBottom:'0'}}><label htmlFor="location">Address</label></h3>
+          <input style={{paddingRight:'250px'}} type="text" name="location" id="location" />
           <br />
         </div>
         <div>
-          <input type="submit" value="save"/>
+          <input className="shelterSubmit" type="submit" value="save"/>
         </div>
       </form>
-    </>
+    </div>
   )
 }
