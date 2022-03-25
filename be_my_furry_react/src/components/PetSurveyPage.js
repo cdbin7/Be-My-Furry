@@ -16,9 +16,8 @@ export default function PetSurveyPage() {
           <button className="survey-type survey-cat" onClick={()=>setType('cat')}>Cat</button>
         </div>
       </div>
-      <div className="surveyFormPage">
-        {type ? <PetSurveyForm type={type}/> : null}
-      </div>
+
+      {type ? <PetSurveyForm type={type}/> : null}
     </div>
   )
 }

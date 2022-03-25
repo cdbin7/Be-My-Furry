@@ -28,19 +28,19 @@ const PetSurveyForm = (props) =>  {
     <>
     <h1>{props.type =='dog' ? 'Dog' : null}</h1>
     <h1>{props.type =='cat' ? 'Cat' : null}</h1>
-    <form onSubmit={handleSubmit} className="petSurveyForm">
-      <div style={{marginBottom:'30px'}}>
+    <form onSubmit={handleSubmit} >
+      <div>
         <label htmlFor="owner">Are you a pet owner?</label><br />
         <input type="radio" name="owner" id="owner1" value="first_owner" />First Owner<br />
         <input type="radio" name="owner" id="owner2" value="previous_owner" />Previous Owner<br />
         <input type="radio" name="owner" id="owner3" value="current_owner" />Current Owner<br />
       </div>
-      <div style={{marginBottom:'30px'}}>
+      <div>
         <label htmlFor="pets">Do you currently have a pet(s)? </label><br />
         <input type="radio" name="pets" value="true" />Yes, I have<br />
         <input type="radio" name="pets" value="false" />No, I don't have<br />
       </div>
-      <div style={{marginBottom:'30px'}}>
+      <div>
         <label htmlFor="age">What's your ideal pet?</label><br />
         <input type="radio" name="age" value="no_age"/>No Age Preference<br />
         <input type="radio" name="age" value="new_born"/>New Born<br />
@@ -48,13 +48,13 @@ const PetSurveyForm = (props) =>  {
         <input type="radio" name="age" value="adult"/>Adult<br />
         <input type="radio" name="age" value="old"/>Old<br />
       </div>
-      <div style={{marginBottom:'30px'}}>
+      <div>
         <label htmlFor="gender">What's your gender preference?</label><br />
         <input type="radio" name="gender" value="no_gender"/>No Gender Preference<br />
         <input type="radio" name="gender" value="female"/>Female<br />
         <input type="radio" name="gender" value="male"/>Male<br />
       </div>
-      <div style={{marginBottom:'30px'}}>
+      <div>
         <label htmlFor="size">What's your size preference?</label><br />
         <input type="radio" name="size" value="no_size"/>No Size Preference<br />
         <input type="radio" name="size" value="small"/>Small<br />
@@ -64,14 +64,14 @@ const PetSurveyForm = (props) =>  {
       {
         props.type==='dog'?
         <>
-      <div style={{marginBottom:'30px'}}>
+      <div>
         <label htmlFor="activity">What's your activity level preference?</label><br />
         <input type="radio" name="activity" value="no_activity"/>No Activity Preference<br />
         <input type="radio" name="activity" value="very_active"/>Very Active<br />
         <input type="radio" name="activity" value="active"/>Active<br />
         <input type="radio" name="activity" value="laid_back"/>Laid Back<br />
       </div>
-      <div style={{marginBottom:'30px'}}>
+      <div>
         <label htmlFor="house_trained">Should your dog be house-trained?</label><br />
         <input type="radio" name="house_trained" value="no_house_trained"/>No Preference<br />
         <input type="radio" name="house_trained" value="true"/>Yes<br />
@@ -81,13 +81,13 @@ const PetSurveyForm = (props) =>  {
         : null
       }
 
-      <div style={{marginBottom:'30px'}}>
+      <div>
         <label htmlFor="special_needs">Are you open for adopting a pet with special needs? </label><br />
         <input type="radio" name="special_needs" value="true"/>Open<br />
         <input type="radio" name="special_needs" value="false"/>Not Open<br />
       </div>
-      <div style={{marginBottom:'30px'}}>
-        <input className="surveySubmit" type="submit" value="See Your Matches"/>
+      <div>
+        <input type="submit" value="See Your Matches"/>
       </div>
     </form>
     </>

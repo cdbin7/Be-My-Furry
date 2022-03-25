@@ -33,7 +33,7 @@ export default function LikeButton(props) {
 
   return (
     <div className="like-button-container">
-      <h2 className="like-button" onClick={() => {like ? deleteLike() : createLike()}}>
+      <h2 onClick={() => {like ? deleteLike() : createLike()}}>
         {like ? "❤️" : "♡"}
       </h2>
     </div>

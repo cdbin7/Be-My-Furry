@@ -51,15 +51,10 @@ export default function PetIndexPage(props) {
         return(
           <div className="card">
             <div key={e.id}>
-              <img style={{height:"250px",width:"100%", borderRadius:"10px"}} src={"http://localhost:3000/"+e.image} alt="dog" />
-              <div className="pet-index-info-container">
-                <div className="petName-likeButton">
-                  <h1> <Link className="pet-name" to={`/pets/${e.id}`}>{e.name}</Link>
-                  </h1>
-                  <LikeButton pet_id={e.id}/>
-
-                </div>
-                
+              <img style={{height:"300px",width:"100%", borderRadius:"10px"}} src={"http://localhost:3000/"+e.image} alt="dog" />
+              <LikeButton pet_id={e.id}/>
+              <div className="container">
+                <h1> <Link className="pet-name" to={`/pets/${e.id}`}>{e.name}</Link></h1>
                 <h2>{handleAge(e.age)} | {e.gender} | {e.size} size </h2>
             </div>
             </div>

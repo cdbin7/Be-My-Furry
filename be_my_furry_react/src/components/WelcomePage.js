@@ -16,14 +16,13 @@ export default function WelcomePage(props) {
       <AuthContext.Consumer>
         {context => context.user ? 
       <div className="survey-container">
-        <h2 style={{marginBottom:'10px'}}>Get personalized pet matches on Furry House</h2>
+        <h2 style={{marginBottom:'2'}}>Get personalized pet matches on Furry House</h2>
         <small>Answer a few quick questions to find your future best friend</small><br/>
         <br/><Link className="survey-icon" to='/pets-survey'>Get Started</Link>
       </div>
       :
       <div className="survey-container">
-        <h2 style={{marginBottom:'10px'}}>Get personalized pet matches on Furry House</h2>
-        <small>Answer a few quick questions to find your future best friend</small><br/>
+        <h2>Get personalized pet matches on Furry House</h2>
         <Link className="survey-icon" onClick={()=> {alert("Oops! Please sign in first!")}} to='/sign_in'>Get Started</Link>
       </div>
       }
